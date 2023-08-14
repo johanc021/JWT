@@ -175,3 +175,18 @@ Estructura por body
 "user": "facjohan@hotmail.com",
 "message": "Muy bien y tu?"
 }
+
+---
+
+---
+
+---
+
+Se implemento el token jwt y se agrego la ruta /current para validar el token
+Al iniciar sesion se crea el token, y con postman se puede probar al enviar lo siguiente:
+
+Peticion GET
+
+http://localhost:8080/api/sessions/current
+
+y enviar por headers una variable Authorization con value -> Bearer y el token
