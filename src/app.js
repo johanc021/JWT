@@ -1,4 +1,6 @@
 import express from "express";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 import __dirname from './utils.js'
 import viewRouter from './routes/views.router.js'
 import productsRouter from './routes/product.router.js'
@@ -31,6 +33,20 @@ app.engine('handlebars', handlebars.engine());
 app.set('views', __dirname + '/views')
 app.set('view engine', 'handlebars')
 app.use(express.static(__dirname + '/public'))
+
+//Sesion de usuario para la estrategia de github
+
+app.use(session({
+    store: MongoStore.create({
+        mongoUrl: "mongodb+srv://Aruzuhed:Coder123@passportjwt.wgcwgdr.mongodb.net/?retryWrites=true&w=majority",
+        mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true },
+        ttl: 3600
+    }),
+    secret: "C0d3r123",
+    resave: false,
+    saveUninitialized: false
+
+}))
 
 //passport
 initializedPassport();

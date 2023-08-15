@@ -1,7 +1,7 @@
 import passport from "passport";
 import passportJWT from "passport-jwt";
 import local from 'passport-local'
-import { cookieExtractor, SECRET_KEY, isValidPassword } from "../utils.js";
+import { cookieExtractor, SECRET_KEY, isValidPassword, createHast } from "../utils.js";
 import userModel from "../dao/models/users.js";
 
 const localStrategy = local.Strategy;

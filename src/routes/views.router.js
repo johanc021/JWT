@@ -23,11 +23,7 @@ router.get('/resetPassword', (req, res) => {
     res.render('resetPassword')
 })
 
-/* router.get("/profile", (req, res) => {
-    res.render("profile", {
-        user: req.user
-    });
-}); */
+//profile
 router.get("/profile", passport.authenticate('current', { session: false }), (req, res) => {
     res.render("profile", {
         user: req.user

@@ -66,28 +66,7 @@ router.get('/githubcallback', passport.authenticate('github', { failureRedirect:
     res.redirect('/profile')
 })
 
-/* router.post('/logout', async (req, res) => {
-    try {
-        // Eliminar la sesión de la base de datos (en este caso, utilizando el email del usuario)
-        const { email } = req.session.user;
-        await userModel.findOneAndUpdate({ email }, { $unset: { session: 1 } });
-
-        // Destruir la sesión en el servidor
-        req.session.destroy((err) => {
-            if (err) {
-                console.error('Error al cerrar la sesión:', err);
-                return res.status(500).json({ status: 'error', error: 'Error al cerrar la sesión' });
-            }
-
-            // Enviar una respuesta exitosa
-            return res.status(200).json({ status: 'success', message: 'Sesión cerrada correctamente' });
-        });
-    } catch (err) {
-        console.error('Error al cerrar la sesión:', err);
-        res.status(500).json({ status: 'error', error: 'Error al cerrar la sesión' });
-    }
-}); */
-
+//logout
 router.post('/logout', async (req, res) => {
     try {
         res.clearCookie('cookie');
